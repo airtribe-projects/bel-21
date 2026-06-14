@@ -1,7 +1,13 @@
+/*
+Async Await: It is a syntactical sugar over promises
+
+*/
+
+
 const asyncFunction1 = () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            reject("AF 1 Success res1");
+            resolve("AF 1 Success res1");
             console.log("AF 1 executed")
         }, 100);
     })
@@ -10,7 +16,7 @@ const asyncFunction1 = () => {
 const asyncFunction2 = () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            reject("AF 2 Success");
+            resolve("AF 2 Success");
             console.log("AF 2 executed")
         }, 500);
     })
@@ -19,40 +25,63 @@ const asyncFunction2 = () => {
 const asyncFunction3 = () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            reject("AF 3 Success");
+            resolve("AF 3 Success");
             console.log("AF 3 executed")
         }, 800);
     })
 };
 
 
-// Promise.all
-// const main =  () => {
-//     const resp = Promise.all([asyncFunction1(), asyncFunction2(), asyncFunction3()]);
+const sum = async (a, b) => {
+    return a + b;
+}
 
-//     resp.then(values => {
-//         console.log(values);
-//     }).catch((err) => {
-//         console.log("ERR: ", err)
-//     })
-
-//     console.log(resp);
-// };
+const diff = (a, b) => {
+    return b - a;
+}
 
 
-// Promise.allSettled
+// 
+// const main = async () => {
+//     // let resp1;
+//     // try {
+//     //     resp1 = await asyncFunction1();
+//     // } catch (e) {
+//     //     console.log("Error: ", e)
+//     // }
+    
+    
+//     // console.log("Response: ", resp1); 
+//     // const resp2 = await asyncFunction2();
+//     // console.log("Response: ",resp2);
+//     // const resp3 = await asyncFunction3(); 
+//     // console.log("Response: ",resp3);  
 
-const main =  () => {
-    const resp = Promise.allSettled([asyncFunction1(), asyncFunction2(), asyncFunction3()]);
+//     const resp4 = sum(5,6);
 
-    resp.then(values => {
-        console.log(values);
-    }).catch((err) => {
-        console.log("ERR: ", err)
-    })
+//     console.log("Response 4:", resp4, await resp4)
 
-    console.log(resp);
-};
+//     const resp5 = await diff(8,2);
+    
+//     console.log(resp5);
+// }
 
-main()
+// const response = main();
+
+// console.log(response);
+
+
+
+// Interview Question:
+
+const main = async () => {
+    const resp1 = await asyncFunction1();
+    console.log("Response: ", resp1); 
+    const resp2 = await asyncFunction2();
+    console.log("Response: ",resp2);
+    const resp3 = await asyncFunction3(); 
+    console.log("Response: ",resp3);  
+}
+
+const response = main();
 
