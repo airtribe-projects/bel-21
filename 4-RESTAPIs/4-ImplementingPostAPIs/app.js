@@ -1,6 +1,11 @@
+require('dotenv').config();
+
 const express = require('express');
 
 const app = express();
+// In older code you may have body-parser
+app.use(express.json());
+
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
@@ -61,6 +66,20 @@ app.get("/api/v1/courses/:courseId", (req, res) => {
 })
 
 
-app.listen(3000, () => {
-    console.log("Server Running on port 3000")
+app.post('/api/v1/courses', (req, res) => {
+    const course = req.body;
+    console.log(course);
+    course.id = courses.length;
+    courses.push(course);
+    res.send(course);
+})
+
+
+const PORT = process.env.PORT || 8080;
+
+// console.log(process.env);
+
+
+app.listen(PORT, () => {
+    console.log(`Server Running on port ${PORT}`);
 })
