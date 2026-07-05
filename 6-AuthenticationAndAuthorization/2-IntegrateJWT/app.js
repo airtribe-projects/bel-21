@@ -35,7 +35,6 @@ app.use(express.json());
 app.use(logger);
 app.use(logger2);
 
-
 app.get('/', (req, res) => {
     res.send('Hello World!');
 })
