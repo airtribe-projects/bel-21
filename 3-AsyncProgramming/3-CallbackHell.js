@@ -22,15 +22,14 @@ const asyncFunction3 = (cb) => {
 // Callback Hell / Pyramid of Doom
 // 
 const main =  () => {
-    console.log("Step 1");
+    console.log("Start");
     asyncFunction1(() => {
         asyncFunction2(() => {
             asyncFunction3(() => {
-                console.log("All Done");
+                console.log("End");
             });
         });
-    });
-    console.log("Step 2");
+    });a
 };
 
 main();
