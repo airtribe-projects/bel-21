@@ -25,5 +25,24 @@
 25. Gurwinder: Reserve spot? Nice to have feature, We will start with no
 26. Gurwinder: What happens if parking is full? Depends on the car/owner
 27. Sravanti: Guidance to the spot? This is more of a infrastucture problem
-28. Ravi: Fire Safety
-29: 
+28. Ravi: Fire Safety: No
+29. Krishna: Should we integrate security cameras: No
+30. Lifts: Should exist in the system, not managed by Parking Lot
+31. Parking Fee: 
+32. Should support ParkingLot Maintaince: Yes
+### Major Entities of the System
+* Vehicle
+    * VehicleTypes
+* Payment
+    * PaymentTypes
+* ParkingSpot
+* ParkingSpotType
+* Ticket
+    *  TicketStatus
+* TimeDuration (Can this be an entity)
+* PricingModel (Can this be an entity)
+* EntryGate
+* EntryGate
+* ParkingLevel/ParkingFloor
+* DisplayPanel
+* ParkingLot
