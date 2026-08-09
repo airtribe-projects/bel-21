@@ -30,6 +30,7 @@
 30. Lifts: Should exist in the system, not managed by Parking Lot
 31. Parking Fee: 
 32. Should support ParkingLot Maintaince: Yes
+
 ### Major Entities of the System
 * Vehicle
     * VehicleTypes

@@ -42,30 +42,44 @@ Approach: Bottom to top approach
 + isAvailable(): Boolean
 + getAvailableSpot(ParkingSpotType): <ParkingSpot>
 
-
-
-
-
-
-### Ticket
-vehicle
-parkingSpot
-
-
-
-### ParkingSpot
-
-
-
-
-
-### PaymentTypes
-
-### Ticket
+#### Relationship
+HAS-A relationship with ParkingSpot
 
 ### ParkingLot
+parkingFloors: [<ParkingFloor>]
+entryGate: <EntryGate>
+exitGate: <ExitGate>
+displayPanel: <DisplayPanel>
 
-----------------
-checkIn(vehicleType, registrationNumber): 
-checkOut: 
+---------------------------------
+- parkVehicle(vehicle: Vehicle): <ParkingTicket> 
+- unparkVehicle(ticket: <ParkingTicket>):  <ParkingTicket>
+- composeDisplayMessage(): <String> 
+
+### DisplayPanel
++ showMessage(message: string)
+
+#### Relationships:
+HAS-A (Strong) ParkingFloor, EntryGate, ExitGate, DisplayPanel
+USES-A Vehicle, ParkingTicket, ParkingSpotType, ParkingSpot, VehicleType
+
+
+### EntryGate
+- getParkingSpot(parkingFloors: [<ParkingFloor>], parkingSpotType: <ParkingSpotType>): <ParkingSpot> 
+- getSpotTypeBasedOnVehicleType(vehicleType: <VehicleTypeEnum>):  <ParkingSpotType>
+- generateTicket(vehicle, ParkingSpot): ParkingTicket
+
+### ExitGate
+- paymentProcess: <PaymentProcessor>
+- checkout(ticket: <ParkingTicket>): <ParkingTicket>
+
+
+### ParkingTicket
+- entryTime
+- exitTime
+- vehicle
+- parkingSpot
+- amountPaid
+- dailyPassId: 
+- monthlyPss
 
